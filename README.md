@@ -1,3 +1,4 @@
 # submission1
 
-A new Flutter project.
+Test Coverage: 87.80%
+command: dart run test_cov_console

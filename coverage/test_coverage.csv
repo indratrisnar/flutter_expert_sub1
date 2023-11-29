@@ -1,0 +1,95 @@
+File,% Branch,% Funcs,% Lines,Uncovered Line #s 
+lib/,,,, 
+injection.dart,0.00,0.00,0.00,no unit testing
+main.dart,0.00,0.00,0.00,no unit testing
+lib/common/,,,, 
+"constants.dart,100.00,100.00,30.00,""19,21,25,26,27,28,29"""
+"exception.dart,100.00,100.00,100.00,"""""
+"failure.dart,100.00,100.00,100.00,"""""
+state_enum.dart,0.00,0.00,0.00,no unit testing
+utils.dart,0.00,0.00,0.00,no unit testing
+lib/data/datasources/,,,, 
+"movie_local_data_source.dart,100.00,100.00,100.00,"""""
+"movie_remote_data_source.dart,100.00,100.00,100.00,"""""
+"tv_series_local_data_source.dart,100.00,100.00,100.00,"""""
+"tv_series_remote_data_source.dart,100.00,100.00,100.00,"""""
+lib/data/datasources/db/,,,, 
+"database_helper.dart,100.00,100.00,0.00,""8,12,16,18,25,26,27,29,33,34,44,45,46,49,50,51,54,58,59,60,63,66,67,73,74,75"""
+"tv_database_helper.dart,100.00,100.00,0.00,""8,12,13,17,18,23,24,25,27,31,32,42,43,44,47,48,49,52,56,57,58,61,64,65,71,72,73"""
+lib/data/models/,,,, 
+"genre_model.dart,100.00,100.00,100.00,"""""
+"movie_detail_model.dart,100.00,100.00,73.81,""78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99"""
+"movie_model.dart,100.00,100.00,100.00,"""""
+"movie_response.dart,100.00,100.00,100.00,"""""
+"movie_table.dart,100.00,100.00,78.26,""32,33,34,35,36,48"""
+"tv_response.dart,100.00,100.00,55.56,""16,17,20,21"""
+"tv_series_detail_model.dart,100.00,100.00,100.00,"""""
+"tv_series_model.dart,100.00,100.00,100.00,"""""
+"tv_series_table.dart,100.00,100.00,100.00,"""""
+lib/data/repositories/,,,, 
+"movie_repository_impl.dart,100.00,100.00,100.00,"""""
+"tv_series_repository_impl.dart,100.00,100.00,82.76,""30,31,43,44,55,68,69,80,81,92"""
+lib/domain/entities/,,,, 
+"genre.dart,100.00,100.00,100.00,"""""
+"movie.dart,100.00,100.00,100.00,"""""
+"movie_detail.dart,100.00,100.00,100.00,"""""
+"tv_series_detail_entity.dart,100.00,100.00,100.00,"""""
+"tv_series_entity.dart,100.00,100.00,100.00,"""""
+lib/domain/repositories/,,,, 
+movie_repository.dart,0.00,0.00,0.00,no unit testing
+tv_series_repository.dart,0.00,0.00,0.00,no unit testing
+lib/domain/usecases/,,,, 
+"get_movie_detail.dart,100.00,100.00,100.00,"""""
+"get_movie_recommendations.dart,100.00,100.00,100.00,"""""
+"get_now_playing_movies.dart,100.00,100.00,100.00,"""""
+"get_now_playing_tv_series.dart,100.00,100.00,100.00,"""""
+"get_popular_movies.dart,100.00,100.00,100.00,"""""
+"get_popular_tv_series.dart,100.00,100.00,100.00,"""""
+"get_top_rated_movies.dart,100.00,100.00,100.00,"""""
+"get_top_rated_tv_series.dart,100.00,100.00,100.00,"""""
+"get_tv_series_detail.dart,100.00,100.00,100.00,"""""
+"get_tv_series_recommendations.dart,100.00,100.00,100.00,"""""
+"get_watchlist_movies.dart,100.00,100.00,100.00,"""""
+"get_watchlist_status.dart,100.00,100.00,100.00,"""""
+"get_watchlist_status_tv_series.dart,100.00,100.00,100.00,"""""
+"get_watchlist_tv_series.dart,100.00,100.00,100.00,"""""
+"remove_watchlist.dart,100.00,100.00,100.00,"""""
+"remove_watchlist_tv_series.dart,100.00,100.00,100.00,"""""
+"save_watchlist.dart,100.00,100.00,100.00,"""""
+"save_watchlist_tv_series.dart,100.00,100.00,100.00,"""""
+"search_movies.dart,100.00,100.00,100.00,"""""
+"search_tv_series.dart,100.00,100.00,100.00,"""""
+lib/presentation/pages/,,,, 
+about_page.dart,0.00,0.00,0.00,no unit testing
+home_movie_page.dart,0.00,0.00,0.00,no unit testing
+home_page.dart,0.00,0.00,0.00,no unit testing
+home_tv_page.dart,0.00,0.00,0.00,no unit testing
+"movie_detail_page.dart,100.00,100.00,78.26,""40,41,53,79,116,119,192,193,197,204,205,206,208,209,210,213,216,217,218,220,222,223,224,226,229,230,240,272,273,302"""
+now_playing_tv_page.dart,0.00,0.00,0.00,no unit testing
+"popular_movies_page.dart,100.00,100.00,88.46,""39,40,41"""
+popular_tv_page.dart,0.00,0.00,0.00,no unit testing
+search_page.dart,0.00,0.00,0.00,no unit testing
+search_tv_page.dart,0.00,0.00,0.00,no unit testing
+"top_rated_movies_page.dart,100.00,100.00,88.46,""39,40,41"""
+top_rated_tv_page.dart,0.00,0.00,0.00,no unit testing
+tv_detail_page.dart,0.00,0.00,0.00,no unit testing
+watchlist_movies_page.dart,0.00,0.00,0.00,no unit testing
+watchlist_tv_page.dart,0.00,0.00,0.00,no unit testing
+lib/presentation/provider/,,,, 
+"movie_detail_notifier.dart,100.00,100.00,96.08,""101,102"""
+"movie_list_notifier.dart,100.00,100.00,100.00,"""""
+"movie_search_notifier.dart,100.00,100.00,100.00,"""""
+"now_playing_tv_series_notifier.dart,100.00,100.00,100.00,"""""
+"popular_movies_notifier.dart,100.00,100.00,100.00,"""""
+"popular_tv_series_notifier.dart,100.00,100.00,100.00,"""""
+"top_rated_movies_notifier.dart,100.00,100.00,100.00,"""""
+"top_rated_tv_series_notifier.dart,100.00,100.00,100.00,"""""
+"tv_detail_notifier.dart,100.00,100.00,100.00,"""""
+"tv_list_notifier.dart,100.00,100.00,100.00,"""""
+"tv_search_notifier.dart,100.00,100.00,100.00,"""""
+"watchlist_movie_notifier.dart,100.00,100.00,100.00,"""""
+"watchlist_tv_notifier.dart,100.00,100.00,100.00,"""""
+lib/presentation/widgets/,,,, 
+"movie_card_list.dart,100.00,100.00,0.00,""10,12,14,16,17,18,21,24,26,27,28,34,36,37,38,41,43,44,45,53,58,59,60,62,63,65,67"""
+tv_card_list.dart,0.00,0.00,0.00,no unit testing
+"All files with unit testing,100.00,100.00,87.80,"""""
