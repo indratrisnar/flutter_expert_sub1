@@ -41,6 +41,7 @@ import 'package:core/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:core/presentation/provider/watchlist_tv_notifier.dart';
+import 'package:search/presentation/bloc/search_bloc.dart';
 import 'package:search/search.dart';
 
 final locator = GetIt.instance;
@@ -114,6 +115,10 @@ void init() {
   );
   locator.registerFactory(
     () => WatchlistTvNotifier(getWatchlistTvs: locator()),
+  );
+  // bloc
+  locator.registerFactory(
+    () => SearchBloc(locator()),
   );
 
   // use case
