@@ -2,13 +2,12 @@ import 'package:core/utils/failure.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:dartz/dartz.dart';
 import 'package:core/domain/entities/movie.dart';
-import '../../../../search/lib/domain/usecases/search_movies.dart';
-import '../../../../search/lib/presentation/providers/movie_search_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:search/search.dart';
 
-import 'movie_search_notifier_test.mocks.dart';
+import '../bloc/search_bloc_test.mocks.dart';
 
 @GenerateMocks([SearchMovies])
 void main() {

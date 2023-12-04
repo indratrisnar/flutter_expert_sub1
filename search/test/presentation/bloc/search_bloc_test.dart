@@ -43,7 +43,7 @@ void main() {
   final tMovieList = <Movie>[tMovieModel];
   const tQuery = 'spiderman';
 
-  blocTest(
+  blocTest<SearchBloc, SearchState>(
     'should emit [Loading,HasData] '
     'when data is gotten successfully',
     build: () {
@@ -63,7 +63,7 @@ void main() {
     },
   );
 
-  blocTest(
+  blocTest<SearchBloc, SearchState>(
     'should emit [Loading,Error] '
     'when data is gotten failed',
     build: () {
