@@ -34,7 +34,7 @@ void main() {
       notifier.fetchTvSearch('query');
 
       // assert
-      expect(notifier.state, RequestState.Loading);
+      expect(notifier.state, RequestState.loading);
       expect(listenerCallCount, 1);
     },
   );
@@ -51,7 +51,7 @@ void main() {
       await notifier.fetchTvSearch('query');
 
       // assert
-      expect(notifier.state, RequestState.Loaded);
+      expect(notifier.state, RequestState.loaded);
       expect(notifier.searchResult, testTvSeriesList);
       expect(listenerCallCount, 2);
     },
@@ -63,13 +63,13 @@ void main() {
       // arrange
       when(
         () => mockSearchTvSeries.execute(any()),
-      ).thenAnswer((_) async => Left(ServerFailure('Failed')));
+      ).thenAnswer((_) async => const Left(ServerFailure('Failed')));
 
       // act
       await notifier.fetchTvSearch('query');
 
       // assert
-      expect(notifier.state, RequestState.Error);
+      expect(notifier.state, RequestState.error);
       expect(notifier.message, 'Failed');
       expect(listenerCallCount, 2);
     },

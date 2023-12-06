@@ -36,7 +36,7 @@ void main() {
       notifier.fetchWatchlistMovies();
 
       // assert
-      expect(notifier.watchlistState, RequestState.Loading);
+      expect(notifier.watchlistState, RequestState.loading);
       expect(listenerCallCount, 1);
     },
   );
@@ -55,7 +55,7 @@ void main() {
       await notifier.fetchWatchlistMovies();
 
       // assert
-      expect(notifier.watchlistState, RequestState.Loaded);
+      expect(notifier.watchlistState, RequestState.loaded);
       expect(notifier.watchlistTvs, [testTvSeriesEntity]);
       expect(listenerCallCount, 2);
     },
@@ -68,14 +68,14 @@ void main() {
       when(
         () => mockGetWatchlistTvSeries.execute(),
       ).thenAnswer(
-        (_) async => Left(ServerFailure('Server Error')),
+        (_) async => const Left(ServerFailure('Server Error')),
       );
 
       // act
       await notifier.fetchWatchlistMovies();
 
       // assert
-      expect(notifier.watchlistState, RequestState.Error);
+      expect(notifier.watchlistState, RequestState.error);
       expect(notifier.message, 'Server Error');
       expect(listenerCallCount, 2);
     },

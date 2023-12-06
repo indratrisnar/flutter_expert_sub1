@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                view.value == 0 ? SEARCH_ROUTE : searchTvRoute,
+                view.value == 0 ? searchRoute : searchTvRoute,
               );
             },
             icon: const Icon(Icons.search),
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.save_alt),
               title: const Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WATCHLIST_ROUTE);
+                Navigator.pushNamed(context, watchlistRoute);
               },
             ),
             ListTile(
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, ABOUT_ROUTE);
+                Navigator.pushNamed(context, aboutRoute);
               },
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),

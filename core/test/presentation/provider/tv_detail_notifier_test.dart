@@ -53,7 +53,7 @@ void main() {
 
   const tId = 1;
 
-  _initDetailUsecase() async {
+  initDetailUsecase() async {
     when(() => mockGetTvSeriesDetail.execute(any())).thenAnswer(
       (_) async => Right(testTvSeriesDetailEntity),
     );
@@ -67,13 +67,13 @@ void main() {
       'should return state loading before usecase execute',
       () async {
         // arrange
-        _initDetailUsecase();
+        initDetailUsecase();
 
         // act
         notifier.fetchTvSeriesDetail(tId);
 
         // assert
-        expect(notifier.tvState, RequestState.Loading);
+        expect(notifier.tvState, RequestState.loading);
         expect(listenerCallCount, 1);
       },
     );
@@ -82,13 +82,13 @@ void main() {
       'should return state loaded after usecase execute',
       () async {
         // arrange
-        _initDetailUsecase();
+        initDetailUsecase();
 
         // act
         await notifier.fetchTvSeriesDetail(tId);
 
         // assert
-        expect(notifier.tvState, RequestState.Loaded);
+        expect(notifier.tvState, RequestState.loaded);
         expect(notifier.tv, testTvSeriesDetailEntity);
         expect(notifier.tvRecommendations, testTvSeriesList);
         expect(listenerCallCount, 3);
@@ -103,7 +103,7 @@ void main() {
         when(
           () => mockGetTvSeriesDetail.execute(tId),
         ).thenAnswer(
-          (_) async => Left(ServerFailure('Server Error')),
+          (_) async => const Left(ServerFailure('Server Error')),
         );
         when(
           () => mockGetTvSeriesRecommendations.execute(tId),
@@ -115,7 +115,7 @@ void main() {
         await notifier.fetchTvSeriesDetail(tId);
 
         // assert
-        expect(notifier.tvState, RequestState.Error);
+        expect(notifier.tvState, RequestState.error);
         expect(notifier.message, 'Server Error');
         expect(listenerCallCount, 2);
       },
@@ -134,14 +134,14 @@ void main() {
         when(
           () => mockGetTvSeriesRecommendations.execute(tId),
         ).thenAnswer(
-          (_) async => Left(ServerFailure('Server Error')),
+          (_) async => const Left(ServerFailure('Server Error')),
         );
 
         // act
         await notifier.fetchTvSeriesDetail(tId);
 
         // assert
-        expect(notifier.recommendationState, RequestState.Error);
+        expect(notifier.recommendationState, RequestState.error);
         expect(notifier.message, 'Server Error');
         expect(listenerCallCount, 3);
       },
@@ -196,7 +196,7 @@ void main() {
         when(
           () => mockSaveWatchlistTvSeries.execute(any()),
         ).thenAnswer(
-          (_) async => Left(DatabaseFailure('Error')),
+          (_) async => const Left(DatabaseFailure('Error')),
         );
         when(
           () => mockGetWatchListStatusTvSeries.execute(any()),
@@ -244,7 +244,7 @@ void main() {
         when(
           () => mockRemoveWatchlistTvSeries.execute(any()),
         ).thenAnswer(
-          (_) async => Left(DatabaseFailure('Error')),
+          (_) async => const Left(DatabaseFailure('Error')),
         );
         when(
           () => mockGetWatchListStatusTvSeries.execute(any()),

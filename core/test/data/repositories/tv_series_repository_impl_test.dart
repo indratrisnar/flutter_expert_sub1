@@ -63,7 +63,7 @@ void main() {
 
         // assert
         verify(() => mockRemoteDataSource.getNowPlayingTv());
-        expect(result, Left(ServerFailure('Server Error')));
+        expect(result, const Left(ServerFailure('Server Error')));
       },
     );
   });
@@ -102,7 +102,7 @@ void main() {
 
         // assert
         verify(() => mockRemoteDataSource.getPopularTv());
-        expect(result, Left(ServerFailure('Server Error')));
+        expect(result, const Left(ServerFailure('Server Error')));
       },
     );
   });
@@ -141,7 +141,7 @@ void main() {
 
         // assert
         verify(() => mockRemoteDataSource.getTopRatedTv());
-        expect(result, Left(ServerFailure('Server Error')));
+        expect(result, const Left(ServerFailure('Server Error')));
       },
     );
   });
@@ -180,7 +180,7 @@ void main() {
 
         // assert
         verify(() => mockRemoteDataSource.getTvDetail(tId));
-        expect(result, Left(ServerFailure('Server Error')));
+        expect(result, const Left(ServerFailure('Server Error')));
       },
     );
   });
@@ -222,7 +222,7 @@ void main() {
         verify(() => mockRemoteDataSource.getTvRecommendations(tId));
         expect(
           result,
-          Left(ConnectionFailure('Failed to connect to the network')),
+          const Left(ConnectionFailure('Failed to connect to the network')),
         );
       },
     );
@@ -265,7 +265,7 @@ void main() {
         verify(() => mockRemoteDataSource.searchTvs(tQuery));
         expect(
           result,
-          Left(ConnectionFailure('Failed to connect to the network')),
+          const Left(ConnectionFailure('Failed to connect to the network')),
         );
       },
     );
@@ -367,7 +367,7 @@ void main() {
 
         // assert
         verify(() => mockLocalDataSource.removeWatchlist(tvTable));
-        expect(result, Left(DatabaseFailure('Database Error')));
+        expect(result, const Left(DatabaseFailure('Database Error')));
       },
     );
   });
@@ -408,7 +408,7 @@ void main() {
 
         // assert
         verify(() => mockLocalDataSource.insertWatchlist(tvTable));
-        expect(result, Left(DatabaseFailure('Database Error')));
+        expect(result, const Left(DatabaseFailure('Database Error')));
       },
     );
   });

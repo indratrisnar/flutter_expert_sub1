@@ -49,7 +49,7 @@ void main() {
         notifier.fetchNowPlayingTvs();
 
         // assert
-        expect(notifier.nowPlayingState, RequestState.Loading);
+        expect(notifier.nowPlayingState, RequestState.loading);
         expect(listenerCallCount, 1);
       },
     );
@@ -66,7 +66,7 @@ void main() {
         await notifier.fetchNowPlayingTvs();
 
         // assert
-        expect(notifier.nowPlayingState, RequestState.Loaded);
+        expect(notifier.nowPlayingState, RequestState.loaded);
         expect(notifier.nowPlayingTvs, testTvSeriesList);
         expect(listenerCallCount, 2);
       },
@@ -78,13 +78,13 @@ void main() {
         // arrange
         when(
           () => mockGetNowPlayingTvSeries.execute(),
-        ).thenAnswer((_) async => Left(ServerFailure('Failed')));
+        ).thenAnswer((_) async => const Left(ServerFailure('Failed')));
 
         // act
         await notifier.fetchNowPlayingTvs();
 
         // assert
-        expect(notifier.nowPlayingState, RequestState.Error);
+        expect(notifier.nowPlayingState, RequestState.error);
         expect(notifier.message, 'Failed');
         expect(listenerCallCount, 2);
       },
@@ -104,7 +104,7 @@ void main() {
         notifier.fetchPopularTvs();
 
         // assert
-        expect(notifier.popularTvsState, RequestState.Loading);
+        expect(notifier.popularTvsState, RequestState.loading);
         expect(listenerCallCount, 1);
       },
     );
@@ -121,7 +121,7 @@ void main() {
         await notifier.fetchPopularTvs();
 
         // assert
-        expect(notifier.popularTvsState, RequestState.Loaded);
+        expect(notifier.popularTvsState, RequestState.loaded);
         expect(notifier.popularTvs, testTvSeriesList);
         expect(listenerCallCount, 2);
       },
@@ -133,13 +133,13 @@ void main() {
         // arrange
         when(
           () => mockGetPopularTvSeries.execute(),
-        ).thenAnswer((_) async => Left(ServerFailure('Failed')));
+        ).thenAnswer((_) async => const Left(ServerFailure('Failed')));
 
         // act
         await notifier.fetchPopularTvs();
 
         // assert
-        expect(notifier.popularTvsState, RequestState.Error);
+        expect(notifier.popularTvsState, RequestState.error);
         expect(notifier.message, 'Failed');
         expect(listenerCallCount, 2);
       },
@@ -159,7 +159,7 @@ void main() {
         notifier.fetchTopRatedTvs();
 
         // assert
-        expect(notifier.topRatedTvsState, RequestState.Loading);
+        expect(notifier.topRatedTvsState, RequestState.loading);
         expect(listenerCallCount, 1);
       },
     );
@@ -176,7 +176,7 @@ void main() {
         await notifier.fetchTopRatedTvs();
 
         // assert
-        expect(notifier.topRatedTvsState, RequestState.Loaded);
+        expect(notifier.topRatedTvsState, RequestState.loaded);
         expect(notifier.topRatedTvs, testTvSeriesList);
         expect(listenerCallCount, 2);
       },
@@ -188,13 +188,13 @@ void main() {
         // arrange
         when(
           () => mockGetTopRatedTvSeries.execute(),
-        ).thenAnswer((_) async => Left(ServerFailure('Failed')));
+        ).thenAnswer((_) async => const Left(ServerFailure('Failed')));
 
         // act
         await notifier.fetchTopRatedTvs();
 
         // assert
-        expect(notifier.topRatedTvsState, RequestState.Error);
+        expect(notifier.topRatedTvsState, RequestState.error);
         expect(notifier.message, 'Failed');
         expect(listenerCallCount, 2);
       },

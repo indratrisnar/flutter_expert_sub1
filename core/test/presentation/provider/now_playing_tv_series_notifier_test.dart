@@ -36,7 +36,7 @@ void main() {
       notifier.fetchNowPlayingTvs();
 
       // assert
-      expect(notifier.state, RequestState.Loading);
+      expect(notifier.state, RequestState.loading);
       expect(listenerCallCount, 1);
     },
   );
@@ -55,7 +55,7 @@ void main() {
       await notifier.fetchNowPlayingTvs();
 
       // assert
-      expect(notifier.state, RequestState.Loaded);
+      expect(notifier.state, RequestState.loaded);
       expect(notifier.tvs, [testTvSeriesEntity]);
       expect(listenerCallCount, 2);
     },
@@ -68,14 +68,14 @@ void main() {
       when(
         () => mockGetNowPlayingTvSeries.execute(),
       ).thenAnswer(
-        (_) async => Left(ServerFailure('Server Error')),
+        (_) async => const Left(ServerFailure('Server Error')),
       );
 
       // act
       await notifier.fetchNowPlayingTvs();
 
       // assert
-      expect(notifier.state, RequestState.Error);
+      expect(notifier.state, RequestState.error);
       expect(notifier.message, 'Server Error');
       expect(listenerCallCount, 2);
     },

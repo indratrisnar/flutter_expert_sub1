@@ -37,7 +37,7 @@ void main() {
   //     ),
   //   );
   // }
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<PopularMovieBloc>(
       create: (context) => mockPopularMovieBloc,
       child: MaterialApp(
@@ -65,7 +65,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -89,7 +89,7 @@ void main() {
 
     final listViewFinder = find.byType(ListView);
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(listViewFinder, findsOneWidget);
   });
@@ -112,7 +112,7 @@ void main() {
 
     final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularMoviesPage()));
 
     expect(textFinder, findsOneWidget);
     expect(find.text('Server Error'), findsOneWidget);

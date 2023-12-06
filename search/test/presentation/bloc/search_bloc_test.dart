@@ -27,7 +27,7 @@ void main() {
   final tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
+    genreIds: const [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
@@ -68,7 +68,7 @@ void main() {
     'when data is gotten failed',
     build: () {
       when(mockSearchMovies.execute(tQuery)).thenAnswer(
-        (_) async => Left(ServerFailure('Server Error')),
+        (_) async => const Left(ServerFailure('Server Error')),
       );
       return searchBloc;
     },

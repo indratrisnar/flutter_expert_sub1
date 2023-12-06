@@ -60,7 +60,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             ),
             _buildSubHeading(
               title: 'Popular',
-              onTap: () => Navigator.pushNamed(context, POPULAR_MOVIES_ROUTE),
+              onTap: () => Navigator.pushNamed(context, popularMovieRoute),
             ),
             BlocBuilder<SectionPopularMovieBloc, SectionPopularMovieState>(
               builder: (context, state) {
@@ -79,7 +79,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             ),
             _buildSubHeading(
               title: 'Top Rated',
-              onTap: () => Navigator.pushNamed(context, TOP_RATED_ROUTE),
+              onTap: () => Navigator.pushNamed(context, topRatedRoute),
             ),
             BlocBuilder<SectionTopRatedMovieBloc, SectionTopRatedMovieState>(
               builder: (context, state) {
@@ -112,8 +112,8 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ),
         InkWell(
           onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [Text('See More'), Icon(Icons.arrow_forward_ios)],
             ),
@@ -127,11 +127,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  MovieList(this.movies);
+  const MovieList(this.movies, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -143,18 +143,18 @@ class MovieList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  MOVIE_DETAIL_ROUTE,
+                  movieDetailRoute,
                   arguments: movie.id,
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
-                  imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
-                  placeholder: (context, url) => Center(
+                  imageUrl: '$baseImageURL${movie.posterPath}',
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
