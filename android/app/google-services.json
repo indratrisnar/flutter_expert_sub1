@@ -1,0 +1,234 @@
+{
+  "project_info": {
+    "project_number": "729981002287",
+    "project_id": "drexapp-latihan",
+    "storage_bucket": "drexapp-latihan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:e700a0894533c06bcd9cda",
+        "android_client_info": {
+          "package_name": "com.example.bily_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:6a4b31e143edd0e9cd9cda",
+        "android_client_info": {
+          "package_name": "com.example.flutter_reza_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:4edcbf3b288f1613cd9cda",
+        "android_client_info": {
+          "package_name": "com.example.latihan_course_google_form"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:f7aa96677f7b8edfcd9cda",
+        "android_client_info": {
+          "package_name": "com.example.latihan_course_social_media"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1k9vhdkerdg2o1gepfvlv7hgvsv2hsm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.latihan_course_social_media",
+            "certificate_hash": "8798ecbbb4b414b1ae1a7bf072853c51bd4c95a1"
+          }
+        },
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:88d4762a91d426bacd9cda",
+        "android_client_info": {
+          "package_name": "com.example.submission1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729981002287:android:41f0e5a39e37f1bfcd9cda",
+        "android_client_info": {
+          "package_name": "com.example.text_recognition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_Xl7gehBOYIqHeLf-kStYoByp22NNbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729981002287-1fevk8n8mpnm49tnuphnvksin9g6k4nf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729981002287-9qnjt48slm4rlj1sg1755o1503q04tjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.textRecognition.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
