@@ -31,7 +31,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/core/test/presentation/pages
+/core/test/presentation/pages/
 
 # Symbolication related
 app.*.symbols
