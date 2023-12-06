@@ -17,7 +17,7 @@ class WatchlistStatusMovieCubit extends Cubit<bool> {
   final SaveWatchlist _saveWatchlistMovie;
   final RemoveWatchlist _removeWatchlistMovie;
 
-  Future checkWatchlist(int id) async {
+  checkWatchlist(int id) async {
     final result = await _getWatchListStatusMovie.execute(id);
     emit(result);
   }

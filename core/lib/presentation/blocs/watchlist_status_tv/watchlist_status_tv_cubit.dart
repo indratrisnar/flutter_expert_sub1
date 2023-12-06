@@ -17,7 +17,7 @@ class WatchlistStatusTvCubit extends Cubit<bool> {
   final SaveWatchlistTvSeries _saveWatchlistTvSeries;
   final RemoveWatchlistTvSeries _removeWatchlistTvSeries;
 
-  Future checkWatchlist(int id) async {
+  Future<void> checkWatchlist(int id) async {
     final result = await _getWatchListStatusTvSeries.execute(id);
     emit(result);
   }

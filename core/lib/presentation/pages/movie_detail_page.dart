@@ -104,7 +104,7 @@ class DetailContent extends StatelessWidget {
                               style: kHeading5,
                             ),
                             ElevatedButton(
-                              onPressed: () async {
+                              onPressed: () {
                                 context
                                     .read<WatchlistStatusMovieCubit>()
                                     .tapButton(movie)
