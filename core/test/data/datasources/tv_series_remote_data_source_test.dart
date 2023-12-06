@@ -11,14 +11,14 @@ import 'package:core/data/models/tv_series_model.dart';
 
 import '../../json_reader.dart';
 
-class MockHttpClient extends Mock implements http.Client {}
+class MockClient extends Mock implements http.Client {}
 
 void main() {
-  late MockHttpClient mockHttpClient;
+  late MockClient mockHttpClient;
   late TvSeriesRemoteDataSourceImpl remoteDataSourceImpl;
 
   setUp(() {
-    mockHttpClient = MockHttpClient();
+    mockHttpClient = MockClient();
     remoteDataSourceImpl = TvSeriesRemoteDataSourceImpl(client: mockHttpClient);
     registerFallbackValue(Uri());
   });
