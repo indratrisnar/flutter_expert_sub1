@@ -11,6 +11,8 @@ import 'package:core/data/models/tv_response.dart';
 import 'package:core/data/models/tv_series_detail_model.dart';
 import 'package:core/data/models/tv_series_model.dart';
 
+import '../../json_reader.dart';
+
 class MockClient extends Mock implements IOClient {}
 
 void main() {
@@ -24,11 +26,7 @@ void main() {
   });
 
   group('get now playing', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/now_playing_tv_series.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse = readJson('dummy_data/now_playing_tv_series.json');
     List<TvSeriesModel> tvs = TvResponse.fromJson(jsonDecode(tResponse)).list;
 
     test(
@@ -79,11 +77,7 @@ void main() {
   });
 
   group('get popular tv', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/popular_tv_series.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse = readJson('dummy_data/popular_tv_series.json');
     List<TvSeriesModel> tvs = TvResponse.fromJson(jsonDecode(tResponse)).list;
 
     test(
@@ -134,11 +128,7 @@ void main() {
   });
 
   group('get top rated tv', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/top_rated_tv_series.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse = readJson('dummy_data/top_rated_tv_series.json');
     List<TvSeriesModel> tvs = TvResponse.fromJson(jsonDecode(tResponse)).list;
 
     test(
@@ -189,11 +179,7 @@ void main() {
   });
 
   group('get tv detail', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/tv_series_detail.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse = readJson('dummy_data/tv_series_detail.json');
     TvSeriesDetailModel detail = TvSeriesDetailModel.fromJson(
       Map.from(jsonDecode(tResponse)),
     );
@@ -247,11 +233,8 @@ void main() {
   });
 
   group('get tv recommendations', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/tv_series_recommendations.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse =
+        readJson('dummy_data/tv_series_recommendations.json');
     List<TvSeriesModel> tvs = TvResponse.fromJson(jsonDecode(tResponse)).list;
     const tId = 1;
 
@@ -303,11 +286,7 @@ void main() {
   });
 
   group('search tv', () {
-    var dir = Directory.current.path;
-    final String jsonString = File(
-      '$dir/test/data/datasources/search_tv_series.json',
-    ).readAsStringSync();
-    String tResponse = jsonString;
+    final String tResponse = readJson('dummy_data/search_tv_series.json');
     List<TvSeriesModel> tvs = TvResponse.fromJson(jsonDecode(tResponse)).list;
     const tQuery = 'Fal';
 

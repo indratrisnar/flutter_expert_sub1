@@ -5,6 +5,8 @@ import 'package:core/data/models/movie_model.dart';
 import 'package:core/data/models/movie_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../json_reader.dart';
+
 void main() {
   const tMovieModel = MovieModel(
     adult: false,
@@ -26,10 +28,8 @@ void main() {
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange
-      var dir = Directory.current.path;
-      final Map<String, dynamic> jsonMap = json.decode(
-          File('$dir/test/data/models/now_playing_new.json')
-              .readAsStringSync());
+      final String tResponse = readJson('dummy_data/now_playing.json');
+      final Map<String, dynamic> jsonMap = json.decode(tResponse);
       // act
       final result = MovieResponse.fromJson(jsonMap);
       // assert
