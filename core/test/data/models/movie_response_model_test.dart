@@ -1,10 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:core/data/models/movie_model.dart';
 import 'package:core/data/models/movie_response.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import '../../json_reader.dart';
 
 void main() {
   const tMovieModel = MovieModel(
@@ -27,8 +26,10 @@ void main() {
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange
-      final Map<String, dynamic> jsonMap =
-          json.decode(readJson('dummy_data/now_playing.json'));
+      var dir = Directory.current.path;
+      final Map<String, dynamic> jsonMap = json.decode(
+          File('$dir/test/data/models/now_playing_new.json')
+              .readAsStringSync());
       // act
       final result = MovieResponse.fromJson(jsonMap);
       // assert
