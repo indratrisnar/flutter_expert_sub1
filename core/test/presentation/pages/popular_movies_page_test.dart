@@ -7,7 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../dummy_data/dummy_objects.dart';
-// import 'popular_movies_page_test.mocks.dart';
 
 class MockPopularMovieBloc
     extends MockBloc<PopularMovieEvent, PopularMovieState>
