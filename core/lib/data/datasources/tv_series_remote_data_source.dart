@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:core/data/models/tv_response.dart';
 import 'package:core/data/models/tv_series_detail_model.dart';
 import 'package:core/utils/exception.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 
 import '../models/tv_series_model.dart';
 
@@ -19,7 +19,7 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   static const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const baseURL = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  final IOClient client;
 
   TvSeriesRemoteDataSourceImpl({required this.client});
 

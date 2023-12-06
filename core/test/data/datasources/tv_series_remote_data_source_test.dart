@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:core/data/datasources/tv_series_remote_data_source.dart';
 import 'package:core/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/io_client.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:http/http.dart' as http;
 import 'package:core/data/models/tv_response.dart';
@@ -11,7 +12,7 @@ import 'package:core/data/models/tv_series_model.dart';
 
 import '../../json_reader.dart';
 
-class MockClient extends Mock implements http.Client {}
+class MockClient extends Mock implements IOClient {}
 
 void main() {
   late MockClient mockHttpClient;

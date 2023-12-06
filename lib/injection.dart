@@ -63,7 +63,7 @@ import 'package:core/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:core/presentation/provider/watchlist_tv_notifier.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:http/io_client.dart';
 import 'package:search/presentation/bloc/search_bloc.dart';
 import 'package:search/search.dart';
@@ -224,9 +224,9 @@ Future<void> init() async {
   );
 
   // external
-  // IOClient ioClient = await _getIoClient();
-  // locator.registerLazySingleton(() => ioClient);
-  locator.registerLazySingleton(() => http.Client());
+  IOClient ioClient = await _getIoClient();
+  locator.registerLazySingleton(() => ioClient);
+  // locator.registerLazySingleton(() => http.Client());
 }
 
 Future<IOClient> _getIoClient() async {
