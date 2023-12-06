@@ -4,6 +4,7 @@ import 'package:core/domain/usecases/remove_watchlist.dart';
 import 'package:core/domain/usecases/save_watchlist.dart';
 import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WatchlistStatusMovieCubit extends Cubit<bool> {
@@ -35,6 +36,14 @@ class WatchlistStatusMovieCubit extends Cubit<bool> {
   }
 
   Future<List> _add(MovieDetail movie) async {
+    FirebaseAnalytics.instance.logEvent(
+      name: 'Add_Movie_to_Watchlist',
+      parameters: {
+        'id': movie.id,
+        'title': movie.title,
+        'posterPath': movie.posterPath,
+      },
+    );
     final result = await _saveWatchlistMovie.execute(movie);
     if (result is Left) {
       return [false, ((result as Left).value as Failure).message];
@@ -43,6 +52,14 @@ class WatchlistStatusMovieCubit extends Cubit<bool> {
   }
 
   Future<List> _remove(MovieDetail movie) async {
+    FirebaseAnalytics.instance.logEvent(
+      name: 'Remove_Movie_From_Watchlist',
+      parameters: {
+        'id': movie.id,
+        'title': movie.title,
+        'posterPath': movie.posterPath,
+      },
+    );
     final result = await _removeWatchlistMovie.execute(movie);
     if (result is Left) {
       return [false, ((result as Left).value as Failure).message];
