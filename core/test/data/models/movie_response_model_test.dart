@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:core/data/models/movie_model.dart';
 import 'package:core/data/models/movie_response.dart';
