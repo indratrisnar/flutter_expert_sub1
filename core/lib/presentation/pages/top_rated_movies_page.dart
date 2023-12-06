@@ -1,51 +1,54 @@
-import 'package:core/presentation/provider/top_rated_movies_notifier.dart';
+import 'package:core/presentation/blocs/top_rated_movie/top_rated_movie_bloc.dart';
 import 'package:core/presentation/widgets/movie_card_list.dart';
-import 'package:core/utils/state_enum.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TopRatedMoviesPage extends StatefulWidget {
+  const TopRatedMoviesPage({super.key});
+
   @override
-  _TopRatedMoviesPageState createState() => _TopRatedMoviesPageState();
+  State<TopRatedMoviesPage> createState() => _TopRatedMoviesPageState();
 }
 
 class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<TopRatedMoviesNotifier>(context, listen: false)
-            .fetchTopRatedMovies());
+    Future.microtask(
+      () => context.read<TopRatedMovieBloc>().add(OnGetTopRatedMovie()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top Rated Movies'),
+        title: const Text('Top Rated Movies'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<TopRatedMoviesNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
-              return Center(
+        child: BlocBuilder<TopRatedMovieBloc, TopRatedMovieState>(
+          builder: (context, state) {
+            if (state is TopRatedMovieLoading) {
+              return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is TopRatedMovieLoaded) {
               return ListView.builder(
+                itemCount: state.movies.length,
                 itemBuilder: (context, index) {
-                  final movie = data.movies[index];
-                  return MovieCard(movie);
+                  final tv = state.movies[index];
+                  return MovieCard(tv);
                 },
-                itemCount: data.movies.length,
+              );
+            } else if (state is TopRatedMovieFailure) {
+              return Center(
+                key: const Key('error_message'),
+                child: Text(state.message),
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
-              );
+              return const SizedBox.shrink();
             }
           },
         ),

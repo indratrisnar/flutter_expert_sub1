@@ -1,6 +1,5 @@
 import 'package:core/presentation/pages/home_movie_page.dart';
 import 'package:core/presentation/pages/home_tv_page.dart';
-import 'package:core/presentation/pages/watchlist_tv_page.dart';
 import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.save_alt),
               title: const Text('Series Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistTvPage.route);
+                Navigator.pushNamed(context, watchlistTvRoute);
               },
             ),
             ListTile(

@@ -1,15 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/domain/entities/tv_series_entity.dart';
-import 'package:core/presentation/pages/now_playing_tv_page.dart';
-import 'package:core/presentation/pages/popular_tv_page.dart';
-import 'package:core/presentation/pages/top_rated_tv_page.dart';
-import 'package:core/presentation/pages/tv_detail_page.dart';
+import 'package:core/presentation/blocs/section_now_playing_tv/section_now_playing_tv_bloc.dart';
+import 'package:core/presentation/blocs/section_popular_tv/section_popular_tv_bloc.dart';
+import 'package:core/presentation/blocs/section_top_rated_tv/section_top_rated_tv_bloc.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
-import 'package:core/utils/state_enum.dart';
+import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../provider/tv_list_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTvPage extends StatefulWidget {
   const HomeTvPage({super.key});
@@ -22,12 +20,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(
-      () => context.read<TvListNotifier>()
-        ..fetchNowPlayingTvs()
-        ..fetchPopularTvs()
-        ..fetchTopRatedTvs(),
-    );
+    Future.microtask(() {
+      context.read<SectionNowPlayingTvBloc>().add(OnGetSectionNowPlayingTv());
+      context.read<SectionPopularTvBloc>().add(OnGetSectionPopularTv());
+      context.read<SectionTopRatedTvBloc>().add(OnGetSectionTopRatedTv());
+    });
   }
 
   @override
@@ -40,52 +37,61 @@ class _HomeTvPageState extends State<HomeTvPage> {
           children: [
             _buildSubHeading(
               title: 'Now Playing',
-              onTap: () => Navigator.pushNamed(context, NowPlayingTvPage.route),
+              onTap: () => Navigator.pushNamed(context, nowPlayingTvRoute),
             ),
-            Consumer<TvListNotifier>(builder: (context, data, child) {
-              final state = data.nowPlayingState;
-              if (state == RequestState.Loading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state == RequestState.Loaded) {
-                return TvList(data.nowPlayingTvs);
-              } else {
-                return const Text('Failed');
-              }
-            }),
+            BlocBuilder<SectionNowPlayingTvBloc, SectionNowPlayingTvState>(
+              builder: (context, state) {
+                if (state is SectionNowPlayingTvLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is SectionNowPlayingTvLoaded) {
+                  return TvList(state.tvs);
+                } else if (state is SectionNowPlayingTvFailure) {
+                  return const Text('Failed');
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
+            ),
             _buildSubHeading(
               title: 'Popular',
-              onTap: () => Navigator.pushNamed(context, PopularTvPage.route),
+              onTap: () => Navigator.pushNamed(context, popularTvRoute),
             ),
-            Consumer<TvListNotifier>(builder: (context, data, child) {
-              final state = data.popularTvsState;
-              if (state == RequestState.Loading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state == RequestState.Loaded) {
-                return TvList(data.popularTvs);
-              } else {
-                return const Text('Failed');
-              }
-            }),
+            BlocBuilder<SectionPopularTvBloc, SectionPopularTvState>(
+              builder: (context, state) {
+                if (state is SectionPopularTvLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is SectionPopularTvLoaded) {
+                  return TvList(state.tvs);
+                } else if (state is SectionPopularTvFailure) {
+                  return const Text('Failed');
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
+            ),
             _buildSubHeading(
               title: 'Top Rated',
-              onTap: () => Navigator.pushNamed(context, TopRatedTvPage.route),
+              onTap: () => Navigator.pushNamed(context, topRatedTvRoute),
             ),
-            Consumer<TvListNotifier>(builder: (context, data, child) {
-              final state = data.topRatedTvsState;
-              if (state == RequestState.Loading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state == RequestState.Loaded) {
-                return TvList(data.topRatedTvs);
-              } else {
-                return const Text('Failed');
-              }
-            }),
+            BlocBuilder<SectionTopRatedTvBloc, SectionTopRatedTvState>(
+              builder: (context, state) {
+                if (state is SectionTopRatedTvLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is SectionTopRatedTvLoaded) {
+                  return TvList(state.tvs);
+                } else if (state is SectionTopRatedTvFailure) {
+                  return const Text('Failed');
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
+            ),
           ],
         ),
       ),
@@ -137,7 +143,7 @@ class TvList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TvDetailPage.route,
+                  tvDetailRoute,
                   arguments: tv.id,
                 );
               },

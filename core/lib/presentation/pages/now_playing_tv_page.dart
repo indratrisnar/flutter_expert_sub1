@@ -1,12 +1,10 @@
-import 'package:core/presentation/provider/now_playing_tv_series_notifier.dart';
+import 'package:core/presentation/blocs/now_playing_tv/now_playing_tv_bloc.dart';
 import 'package:core/presentation/widgets/tv_card_list.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NowPlayingTvPage extends StatefulWidget {
   const NowPlayingTvPage({super.key});
-  static const route = '/tv-now-playing';
 
   @override
   State<NowPlayingTvPage> createState() => NowPlayingTvPageState();
@@ -17,7 +15,7 @@ class NowPlayingTvPageState extends State<NowPlayingTvPage> {
   void initState() {
     super.initState();
     Future.microtask(
-      () => context.read<NowPlayingTvSeriesNotifier>().fetchNowPlayingTvs(),
+      () => context.read<NowPlayingTvBloc>().add(OnGetNowPlayingTv()),
     );
   }
 
@@ -29,25 +27,27 @@ class NowPlayingTvPageState extends State<NowPlayingTvPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<NowPlayingTvSeriesNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<NowPlayingTvBloc, NowPlayingTvState>(
+          builder: (context, state) {
+            if (state is NowPlayingTvLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is NowPlayingTvLoaded) {
               return ListView.builder(
-                itemCount: data.tvs.length,
+                itemCount: state.tvs.length,
                 itemBuilder: (context, index) {
-                  final tv = data.tvs[index];
+                  final tv = state.tvs[index];
                   return TvCard(tv);
                 },
               );
-            } else {
+            } else if (state is NowPlayingTvFailure) {
               return Center(
                 key: const Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
+            } else {
+              return const SizedBox.shrink();
             }
           },
         ),
