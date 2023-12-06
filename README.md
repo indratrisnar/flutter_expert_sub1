@@ -1,7 +1,10 @@
 # submission1
 
-Test Coverage: 87.80%\
-command: dart run test_cov_console
+Test Coverage:
+
+- change readjson to local in core
+- flutter test --coverage
+- dart run test_cov_console
 
 ### > Continous Integration
 
