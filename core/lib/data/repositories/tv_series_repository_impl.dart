@@ -29,6 +29,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 
@@ -42,6 +44,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 
@@ -55,6 +59,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 
@@ -67,6 +73,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 
@@ -79,6 +87,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 
@@ -92,6 +102,8 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
       return const Left(ServerFailure('Server Error'));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return const Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
     }
   }
 

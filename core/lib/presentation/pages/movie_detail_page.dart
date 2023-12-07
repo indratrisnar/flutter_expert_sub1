@@ -48,7 +48,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               child: DetailContent(movie),
             );
           } else if (state is MovieDetailFailure) {
-            return Text(state.message);
+            return Center(child: Text(state.message));
           } else {
             return const SizedBox.shrink();
           }
@@ -195,7 +195,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                tvDetailRoute,
+                                                movieDetailRoute,
                                                 arguments: tv.id,
                                               );
                                             },

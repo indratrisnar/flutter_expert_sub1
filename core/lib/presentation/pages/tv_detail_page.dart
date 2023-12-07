@@ -47,7 +47,7 @@ class _TvDetailPageState extends State<TvDetailPage> {
               child: DetailContent(tv),
             );
           } else if (state is TvDetailFailure) {
-            return Text(state.message);
+            return Center(child: Text(state.message));
           } else {
             return const SizedBox.shrink();
           }
