@@ -1,8 +1,9 @@
 # submission1
 
 Test Coverage:
+test.sh not work
 
-- change readjson to local in core
+- cd (core/test)
 - flutter test --coverage
 - dart run test_cov_console
 
